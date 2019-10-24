@@ -4,13 +4,16 @@
 
 * Our goal was to create an output data set that analyzed & tidied up the full dataset according to the following specifications:
 
->1. Merges the training and the test sets to create one data set.
->2. Extracts only the measurements on the mean and standard deviation for each measurement.
->3. Uses descriptive activity names to name the activities in the data set
->4. Appropriately labels the data set with descriptive variable names.
->5. From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
+1. Merges the training and the test sets to create one data set.
+2. Extracts only the measurements on the mean and standard deviation for each measurement.
+3. Uses descriptive activity names to name the activities in the data set
+4. Appropriately labels the data set with descriptive variable names.
+5. From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
 
-* The following is a high level description of each portion of the resulting script found in run_analysis.R, which outputs to "finaldataset.txt"" 
+* All code was written and ran on `R version 3.6.1 (2019-07-05)` on Macintosh platform `x86_64-apple-darwin15.6.0`
+
+* The following is a high level description of each portion of the resulting script found in `run_analysis.R`, which outputs to `finaldataset.txt`.  The codebook for the output data set is found in `codebook.md` 
+
 
 ### Read in all the data and store it
 ```
