@@ -2,21 +2,21 @@
 library(dplyr)
 
 ## read in features label as vector (removing the redundant count column)
-features <- read.csv("features.txt", sep="", header=FALSE) [2]
+features <- read.csv("UCI HAR Dataset/features.txt", sep="", header=FALSE) [2]
 ## read in the activity descriptors as a dataframe
-activity <- read.csv("activity_labels.txt", sep="", header=FALSE)
+activity <- read.csv("UCI HAR Dataset/activity_labels.txt", sep="", header=FALSE)
 
 ## read in the main test & train dataframes
-testset <- read.csv("test/X_test.txt", header=FALSE)
-trainset <- read.csv("train/X_train.txt", header=FALSE)
+testset <- read.csv("UCI HAR Dataset/test/X_test.txt", sep="", header=FALSE)
+trainset <- read.csv("UCI HAR Dataset/train/X_train.txt", sep="", header=FALSE)
 
 ## read in the test & train subject dataframes
-testsubjects <- read.csv("test/subject_test.txt", header=FALSE)
-trainsubjects <- read.csv("train/subject_train.txt", header=FALSE)
+testsubjects <- read.csv("UCI HAR Dataset/test/subject_test.txt", sep="", header=FALSE)
+trainsubjects <- read.csv("UCI HAR Dataset/train/subject_train.txt", sep="", header=FALSE)
 
 ## read in the test & train activity label dataframes
-testlabels <- read.csv("test/Y_test.txt", header=FALSE)
-trainlabels <- read.csv("train/Y_train.txt", header=FALSE)
+testlabels <- read.csv("UCI HAR Dataset/test/Y_test.txt", sep="", header=FALSE)
+trainlabels <- read.csv("UCI HAR Dataset/train/Y_train.txt", sep="", header=FALSE)
 
 ## merge the test and train dataframes & vectors
 ## simply adding the rows of the training set after the rows of the test set
@@ -35,7 +35,8 @@ names(activity) = c("actnum","ActivityName")
 
 ### PROJECT REQUIREMENT #4 ####
 ## Appropriately labels the data set with descriptive variable names.
-names(mergedset)[1:length(mergedset[,])] = features[,]
+features[,1] <- as.character(features[,1])
+names(mergedset)[1:length(mergedset[1,])] = features[,1]
 
 ### PROJECT REQUIREMENT #2 ###
 ## Extract only the measurements on the mean and standard deviation 
@@ -61,5 +62,5 @@ completedset <- cbind(mergedsubjects,mergedlabels,meanorstdset)
 ## mean or std column
 finaldataset <- completedset %>% group_by(Subject,Activity) %>% summarise_each(funs(mean))
 
-
+write.table(finaldataset, file="finaldataset.txt", row.name=FALSE)
 
