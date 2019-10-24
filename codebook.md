@@ -3,9 +3,9 @@
 * We were asked to perform an analysis on the entire data set provided by UCI ([http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones](http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones))
 * Our goal was to create an output data set that tidied up the original complete dataset according to multiple specifications
 
-## The following codebook is information about all of the variables present in our output dataset, named `finaldataset.txt` in this repository.
+The following codebook is information about all of the variables present in our output dataset, named `finaldataset.txt` in this repository.
 
-### First a high level description about the experiments that created the original data set:
+First a high level description about the experiments that created the original data set:
 ======================================
 > The experiments have been carried out with a group of 30 volunteers within an age bracket of 19-48 years. Each person performed six activities:
 ```
@@ -20,7 +20,7 @@
 
 > The sensor signals (accelerometer and gyroscope) were pre-processed by applying noise filters and then sampled in fixed-width sliding windows of 2.56 sec and 50% overlap (128 readings/window). The sensor acceleration signal, which has gravitational and body motion components, was separated using a Butterworth low-pass filter into body acceleration and gravity. The gravitational force is assumed to have only low frequency components, therefore a filter with 0.3 Hz cutoff frequency was used. From each window, a vector of features was obtained by calculating variables from the time and frequency domain. See 'features_info.txt' for more details. 
 
-### For each record it is provided:
+For each record it is provided:
 ======================================
 
 >* Triaxial acceleration from the accelerometer (total acceleration) and the estimated body acceleration.
@@ -29,7 +29,7 @@
 >* Its activity label. 
 >* An identifier of the subject [1-30] who carried out the experiment.
 
-### Feature Selection 
+Feature Selection 
 =================
 
 > The features selected for this database come from the accelerometer and gyroscope 3-axial raw signals tAcc-XYZ and tGyro-XYZ. These time domain signals (prefix 't' to denote time) were captured at a constant rate of 50 Hz. Then they were filtered using a median filter and a 3rd order low pass Butterworth filter with a corner frequency of 20 Hz to remove noise. Similarly, the acceleration signal was then separated into body and gravity acceleration signals (tBodyAcc-XYZ and tGravityAcc-XYZ) using another low pass Butterworth filter with a corner frequency of 0.3 Hz. 
@@ -62,12 +62,12 @@ fBodyGyroJerkMag
 ```
 =================
 
-## There were initially 561 measurements in the raw data. From this full dataset, we filtered it down to only the measurements of mean and standard deviation (ending in either `mean()'` or `std()`). This left us with 66 measurements (shown below).
+>There were initially 561 measurements in the raw data. From this full dataset, we filtered it down to only the measurements of mean and standard deviation (ending in either `mean()` or `std()`). This left us with 66 measurements (shown below).
 
 > We then grouped the data by `Subject` & `Activity`
 
-`Subject - An integer between [1-30] identifying the person who was measured`
-`Activity - A factor with 6 values [Walking, Walking Upstairs, Walking Downstairs, Sitting, Standing, Laying] indicating the activity of the subject`
+`Subject` - An integer between `[1-30]` identifying the person who was measured
+`Activity` - A factor with 6 values `[Walking, Walking Upstairs, Walking Downstairs, Sitting, Standing, Laying]` indicating the activity of the subject
 
 > And finally found the average value of each of the 66 `mean()` and `std()` measurements (per activity per person): 
 
@@ -106,4 +106,4 @@ fBodyGyroJerkMag
 [63] "fBodyBodyGyroMag-mean()"     "fBodyBodyGyroMag-std()"     
 [65] "fBodyBodyGyroJerkMag-mean()" "fBodyBodyGyroJerkMag-std()" 
 ```
-## Each of these 66 measurements is reprsented as a normalized floating point value between [-1,1]
+Each of these 66 measurements is reprsented as a normalized floating point value between `[-1,1]`
