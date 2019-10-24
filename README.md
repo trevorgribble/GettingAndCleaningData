@@ -13,8 +13,9 @@
 * The following is a high level description of each portion of the resulting script found in run_analysis.R, which outputs to "finaldataset.txt"" 
 
 ### Read in all the data and store it
-
->`features <- read.csv("features.txt", sep="", header=FALSE) [2]
+```
+{
+features <- read.csv("features.txt", sep="", header=FALSE) [2]
 activity <- read.csv("activity_labels.txt", sep="", header=FALSE)
 testset <- read.csv("test/X_test.txt", header=FALSE)
 trainset <- read.csv("train/X_train.txt", header=FALSE)
@@ -22,6 +23,8 @@ testsubjects <- read.csv("test/subject_test.txt", header=FALSE)
 trainsubjects <- read.csv("train/subject_train.txt", header=FALSE)
 testlabels <- read.csv("test/Y_test.txt", header=FALSE)
 trainlabels <- read.csv("train/Y_train.txt", header=FALSE)`
+}
+```
 
 ### merge the test and train dataframes
 >`mergedsubjects <-rbind(testsubjects,trainsubjects)
