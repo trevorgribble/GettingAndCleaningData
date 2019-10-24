@@ -14,14 +14,14 @@
 
 ### Read in all the data and store it
 ```
-features <- read.csv("features.txt", sep="", header=FALSE) [2]
-activity <- read.csv("activity_labels.txt", sep="", header=FALSE)
-testset <- read.csv("test/X_test.txt", header=FALSE)
-trainset <- read.csv("train/X_train.txt", header=FALSE)
-testsubjects <- read.csv("test/subject_test.txt", header=FALSE)
-trainsubjects <- read.csv("train/subject_train.txt", header=FALSE)
-testlabels <- read.csv("test/Y_test.txt", header=FALSE)
-trainlabels <- read.csv("train/Y_train.txt", header=FALSE)
+features <- read.csv("UCI HAR Dataset/features.txt", sep="", header=FALSE) [2]
+activity <- read.csv("UCI HAR Dataset/activity_labels.txt", sep="", header=FALSE)
+testset <- read.csv("UCI HAR Dataset/test/X_test.txt", sep="", header=FALSE)
+trainset <- read.csv("UCI HAR Dataset/train/X_train.txt", sep="", header=FALSE)
+testsubjects <- read.csv("UCI HAR Dataset/test/subject_test.txt", sep="", header=FALSE)
+trainsubjects <- read.csv("UCI HAR Dataset/train/subject_train.txt", sep="", header=FALSE)
+testlabels <- read.csv("UCI HAR Dataset/test/Y_test.txt", sep="", header=FALSE)
+trainlabels <- read.csv("UCI HAR Dataset/train/Y_train.txt", sep="", header=FALSE)
 ```
 
 ### merge the test and train dataframes
@@ -35,7 +35,8 @@ mergedset <- rbind(testset,trainset)
 ```
 names(mergedsubjects) = "Subject"
 names(mergedlabels) = "actnum"
-names(mergedset)[1:length(mergedset[,])] = features[,]
+features[,1] <- as.character(features[,1])
+names(mergedset)[1:length(mergedset[1,])] = features[,1]
 ```
 
 ### Extract only the measurements on the mean and standard deviation for each measurement.
