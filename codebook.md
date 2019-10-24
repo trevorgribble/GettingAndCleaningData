@@ -1,11 +1,11 @@
 # Codebook for the Analysis of the UCI Human Activity Recognition Using Smartphones Dataset
 
-* We were asked to perform an analysis on the entire data set provided by UCI.
+* We were asked to perform an analysis on the entire data set provided by UCI ([http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones](http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones))
 * Our goal was to create an output data set that tidied up the original complete dataset according to multiple specifications
 
-## The following codebook is information about all of the variables present in our output dataset.
+## The following codebook is information about all of the variables present in our output dataset, named `finaldataset.txt` in this repository.
 
-### First a high level description about the experiments that created the original data set - source: [http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones](http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones) 
+### First a high level description about the experiments that created the original data set:
 ======================================
 > The experiments have been carried out with a group of 30 volunteers within an age bracket of 19-48 years. Each person performed six activities:
 ```
@@ -62,15 +62,14 @@ fBodyGyroJerkMag
 ```
 =================
 
-## From this data, we filtered it down to the mean()s and stds() of each of the above variables. This left us with 66 measurements (shown below).
+## There were initially 561 measurements in the raw data. From this full dataset, we filtered it down to only the measurements of mean and standard deviation (ending in either `mean()'` or `std()`). This left us with 66 measurements (shown below).
 
-> We then grouped the data by Subject & Activity
+> We then grouped the data by `Subject` & `Activity`
 
-```
-Subject[1-30]
-Activity[Walking, Walking Upstairs, Walking Downstairs, Sitting, Standing, Laying]
-```
-> & found the mean value of each of the following 66 measurements: 
+`Subject - An integer between [1-30] identifying the person who was measured`
+`Activity - A factor with 6 values [Walking, Walking Upstairs, Walking Downstairs, Sitting, Standing, Laying] indicating the activity of the subject`
+
+> And finally found the average value of each of the 66 `mean()` and `std()` measurements (per activity per person): 
 
 ```
 [1] "tBodyAcc-mean()-X"           "tBodyAcc-mean()-Y"          
@@ -107,3 +106,4 @@ Activity[Walking, Walking Upstairs, Walking Downstairs, Sitting, Standing, Layin
 [63] "fBodyBodyGyroMag-mean()"     "fBodyBodyGyroMag-std()"     
 [65] "fBodyBodyGyroJerkMag-mean()" "fBodyBodyGyroJerkMag-std()" 
 ```
+## Each of these 66 measurements is reprsented as a normalized floating point value between [-1,1]
