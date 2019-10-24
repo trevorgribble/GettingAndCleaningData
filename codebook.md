@@ -9,12 +9,12 @@
 ======================================
 > The experiments have been carried out with a group of 30 volunteers within an age bracket of 19-48 years. Each person performed six activities:
 ```
->1 WALKING
->2 WALKING_UPSTAIRS
->3 WALKING_DOWNSTAIRS
->4 SITTING
->5 STANDING
->6 LAYING
+1 WALKING
+2 WALKING_UPSTAIRS
+3 WALKING_DOWNSTAIRS
+4 SITTING
+5 STANDING
+6 LAYING
 ```
 >wearing a smartphone (Samsung Galaxy S II) on the waist. Using its embedded accelerometer and gyroscope, we captured 3-axial linear acceleration and 3-axial angular velocity at a constant rate of 50Hz. The experiments have been video-recorded to label the data manually. The obtained dataset has been randomly partitioned into two sets, where 70% of the volunteers was selected for generating the training data and 30% the test data.
 
@@ -27,7 +27,7 @@
 >* Triaxial Angular velocity from the gyroscope. 
 >* A 561-feature vector with time and frequency domain variables. 
 >* Its activity label. 
->* An identifier of the subject who carried out the experiment.
+>* An identifier of the subject [1-30] who carried out the experiment.
 
 ### Feature Selection 
 =================
@@ -41,29 +41,36 @@
 > These signals were used to estimate variables of the feature vector for each pattern:
 > '-XYZ' is used to denote 3-axial signals in the X, Y and Z directions.
 
->* tBodyAcc-XYZ
->* tGravityAcc-XYZ
->* tBodyAccJerk-XYZ
->* tBodyGyro-XYZ
->* tBodyGyroJerk-XYZ
->* tBodyAccMag
->* tGravityAccMag
->* tBodyAccJerkMag
->* tBodyGyroMag
->* tBodyGyroJerkMag
->* fBodyAcc-XYZ
->* fBodyAccJerk-XYZ
->* fBodyGyro-XYZ
->* fBodyAccMag
->* fBodyAccJerkMag
->* fBodyGyroMag
->* fBodyGyroJerkMag
-
+```
+tBodyAcc-XYZ
+tGravityAcc-XYZ
+tBodyAccJerk-XYZ
+tBodyGyro-XYZ
+tBodyGyroJerk-XYZ
+tBodyAccMag
+tGravityAccMag
+tBodyAccJerkMag
+tBodyGyroMag
+tBodyGyroJerkMag
+fBodyAcc-XYZ
+fBodyAccJerk-XYZ
+fBodyGyro-XYZ
+fBodyAccMag
+fBodyAccJerkMag
+fBodyGyroMag
+fBodyGyroJerkMag
+```
 =================
 
-## From this data, we filtered it down to the mean()s and stds() of each of the above variables. This left us with 66 measurements.
+## From this data, we filtered it down to the mean()s and stds() of each of the above variables. This left us with 66 measurements (shown below).
 
-> We then grouped the data by Subject (1-30) & Activity (Walking, Walking Upstairs, Walking Downstairs, Sitting, Standing, Laying) & found the mean value of each of the 66 measurements: 
+> We then grouped the data by Subject & Activity
+
+```
+Subject[1-30]
+Activity[Walking, Walking Upstairs, Walking Downstairs, Sitting, Standing, Laying]
+```
+> & found the mean value of each of the following 66 measurements: 
 
 ```
 [1] "tBodyAcc-mean()-X"           "tBodyAcc-mean()-Y"          
