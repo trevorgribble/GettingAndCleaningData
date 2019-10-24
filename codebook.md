@@ -69,14 +69,15 @@ fBodyGyroJerkMag
 `Subject` - An integer between `[1-30]` identifying the person who was measured
 `Activity` - A factor with 6 values `[Walking, Walking Upstairs, Walking Downstairs, Sitting, Standing, Laying]` indicating the activity of the subject
 
-> And finally found the average value of each of the 66 `mean()` and `std()` measurements (per activity per person): 
+> And finally we calculated the average value of each of the following 66 `mean()` and `std()` accelerator & gyroscopic measurements (per activity per person): 
+> (Each of these 66 average measurements is represented as a normalized floating point value between `[-1,1]`)
 
 ```
 [1] "tBodyAcc-mean()-X"           "tBodyAcc-mean()-Y"          
- [3] "tBodyAcc-mean()-Z"           "tBodyAcc-std()-X"           
- [5] "tBodyAcc-std()-Y"            "tBodyAcc-std()-Z"           
- [7] "tGravityAcc-mean()-X"        "tGravityAcc-mean()-Y"       
- [9] "tGravityAcc-mean()-Z"        "tGravityAcc-std()-X"        
+[3] "tBodyAcc-mean()-Z"           "tBodyAcc-std()-X"           
+[5] "tBodyAcc-std()-Y"            "tBodyAcc-std()-Z"           
+[7] "tGravityAcc-mean()-X"        "tGravityAcc-mean()-Y"       
+[9] "tGravityAcc-mean()-Z"        "tGravityAcc-std()-X"        
 [11] "tGravityAcc-std()-Y"         "tGravityAcc-std()-Z"        
 [13] "tBodyAccJerk-mean()-X"       "tBodyAccJerk-mean()-Y"      
 [15] "tBodyAccJerk-mean()-Z"       "tBodyAccJerk-std()-X"       
@@ -106,4 +107,4 @@ fBodyGyroJerkMag
 [63] "fBodyBodyGyroMag-mean()"     "fBodyBodyGyroMag-std()"     
 [65] "fBodyBodyGyroJerkMag-mean()" "fBodyBodyGyroJerkMag-std()" 
 ```
-Each of these 66 measurements is reprsented as a normalized floating point value between `[-1,1]`
+
