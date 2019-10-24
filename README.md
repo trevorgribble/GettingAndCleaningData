@@ -33,9 +33,8 @@ meanorstd <- grepl("mean\\(\\)|std\\(\\)",names(mergedset))
 meanorstdset <- mergedset[,meanorstd]
 
 ##Use descriptive activity names to name the activities in the data set
-mergedactivities<-merge(mergedlabels,activity)
-completedset <- cbind(mergedsubjects,mergedactivities,meanorstdset)
-completedset <- completedset[,-2]
+mergedlabels$Activity <- factor(mergedlabels$Activity, levels = activity[,1], labels=activity[,2])
+completedset <- cbind(mergedsubjects,mergedlabels,meanorstdset)
 
 ## Create a second, independent tidy data set with the average of each variable for each activity and each subject.
 finaldataset <- completedset %>% group_by(Subject,Activity) %>% summarise_all(funs(mean))

@@ -28,10 +28,10 @@ mergedset <- rbind(testset,trainset)
 
 ## Update the names of the columns in the new merged sets
 names(mergedsubjects) = "Subject"
-names(mergedlabels) = "actnum"
+names(mergedlabels) = "Activity"
 
 ## rename the activity columns of the activity label dataframe
-names(activity) = c("actnum","Activity")
+names(activity) = c("actnum","ActivityName")
 
 ### PROJECT REQUIREMENT #4 ####
 ## Appropriately labels the data set with descriptive variable names.
@@ -48,14 +48,10 @@ meanorstdset <- mergedset[,meanorstd]
 
 ### PROJECT REQUIREMENT #3 ###
 ##Use descriptive activity names to name the activities in the data set
-## merge will use the actnum label as default as both dataframes share the label
-mergedactivities<-merge(mergedlabels,activity)
+mergedlabels$Activity <- factor(mergedlabels$Activity, levels = activity[,1], labels=activity[,2])
 
 ## Column bind the subjects and merged activity names into std & mean measurements
-completedset <- cbind(mergedsubjects,mergedactivities,meanorstdset)
-
-## Remove now redundant actnum column
-completedset <- completedset[,-2]
+completedset <- cbind(mergedsubjects,mergedlabels,meanorstdset)
 
 ## PROJECT REQUIREMENT #5 ###
 ## use dplyr function piping to create a second, independent tidy data set 
@@ -63,7 +59,7 @@ completedset <- completedset[,-2]
 
 ## group by subject & activity, and then perform mean function on every 
 ## mean or std column
-finaldataset <- completedset %>% group_by(Subject,Activity) %>% summarise_all(funs(mean))
+finaldataset <- completedset %>% group_by(Subject,Activity) %>% summarise_each(funs(mean))
 
 
 
